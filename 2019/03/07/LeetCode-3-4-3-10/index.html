@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="LeetCode," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="LeetCode刷题第一周（3.4-3.10）为了加快进度只刷难度Medium和Hard的整理一下总结">
+<meta name="keywords" content="LeetCode">
+<meta property="og:type" content="article">
+<meta property="og:title" content="LeetCode(3.4-3.10)">
+<meta property="og:url" content="http://yoursite.com/2019/03/07/LeetCode-3-4-3-10/index.html">
+<meta property="og:site_name" content="讲道理要听">
+<meta property="og:description" content="LeetCode刷题第一周（3.4-3.10）为了加快进度只刷难度Medium和Hard的整理一下总结">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-03-10T12:45:47.086Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="LeetCode(3.4-3.10)">
+<meta name="twitter:description" content="LeetCode刷题第一周（3.4-3.10）为了加快进度只刷难度Medium和Hard的整理一下总结">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/03/07/LeetCode-3-4-3-10/"/>
+
+
+
+
+
+  <title>LeetCode(3.4-3.10) | 讲道理要听</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">讲道理要听</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">好好搬砖</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/03/07/LeetCode-3-4-3-10/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="讲道理也不听">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="讲道理要听">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">LeetCode(3.4-3.10)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-07T15:57:17+08:00">
+                2019-03-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/基础/" itemprop="url" rel="index">
+                    <span itemprop="name">基础</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>LeetCode刷题第一周（3.4-3.10）<br>为了加快进度只刷难度Medium和Hard的<br>整理一下总结</p>
+<a id="more"></a>
+<h2 id="4H-求两个有序数组的中位数，要求时间复杂度O-m-n）"><a href="#4H-求两个有序数组的中位数，要求时间复杂度O-m-n）" class="headerlink" title="4H.求两个有序数组的中位数，要求时间复杂度O(m+n）"></a>4H.求两个有序数组的中位数，要求时间复杂度O(m+n）</h2><p>There are two sorted arrays <strong>nums1</strong> and <strong>nums2</strong> of size m and n respectively.<br>Find the median of the two sorted arrays. The overall run time complexity should be O(log (m+n)).<br>You may assume <strong>nums1</strong> and <strong>nums2</strong> cannot be both empty.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">findMedianSortedArrays</span><span class="params">(<span class="keyword">int</span>[] nums1, <span class="keyword">int</span>[] nums2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> s1 = nums1.length;</span><br><span class="line">        <span class="keyword">int</span> s2 = nums2.length;</span><br><span class="line">        <span class="keyword">int</span> l = s1 + s2;</span><br><span class="line">        <span class="keyword">double</span>[] arr = <span class="keyword">new</span> <span class="keyword">double</span>[l];</span><br><span class="line">        <span class="keyword">if</span>(s1 == <span class="number">0</span>)&#123; <span class="comment">//考虑第一个数组为空情况</span></span><br><span class="line">            <span class="keyword">if</span>(s2%<span class="number">2</span> == <span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> (<span class="keyword">double</span>)nums2[s2/<span class="number">2</span>];</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> (<span class="keyword">double</span>)(nums2[s2/<span class="number">2</span>-<span class="number">1</span>] + nums2[s2/<span class="number">2</span>])/<span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(s2 == <span class="number">0</span>)&#123; <span class="comment">//考虑第二个数组为空情况</span></span><br><span class="line">            <span class="keyword">if</span>(s1%<span class="number">2</span> == <span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> (<span class="keyword">double</span>)nums1[s1/<span class="number">2</span>];</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> (<span class="keyword">double</span>)(nums1[s1/<span class="number">2</span>-<span class="number">1</span>] + nums1[s1/<span class="number">2</span>])/<span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123; <span class="comment">//两个数组都不为空,用新数组接受两个数组的排序结果然后找中位数</span></span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">0</span>, j = <span class="number">0</span>, k = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">while</span>(i &lt; s1 &amp;&amp; j &lt; s2)&#123;</span><br><span class="line">                <span class="keyword">if</span>(nums1[i] &lt;= nums2[j])&#123;</span><br><span class="line">                    arr[k++] = nums1[i++];</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                    arr[k++] = nums2[j++];</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(i &lt; s1)&#123;</span><br><span class="line">                arr[k++] = nums1[i++];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">while</span>(j &lt; s2)&#123;</span><br><span class="line">                arr[k++] = nums2[j++];</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(l%<span class="number">2</span> == <span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> arr[l/<span class="number">2</span>];</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> (arr[l/<span class="number">2</span>-<span class="number">1</span>] + arr[l/<span class="number">2</span>])/<span class="number">2</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="6M-将给定的字符串按Z字型进行排列再按行读取"><a href="#6M-将给定的字符串按Z字型进行排列再按行读取" class="headerlink" title="6M.将给定的字符串按Z字型进行排列再按行读取"></a>6M.将给定的字符串按Z字型进行排列再按行读取</h2><p>The string <code>&quot;PAYPALISHIRING&quot;</code> is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">P   A   H   N</span><br><span class="line">A P L S I I G</span><br><span class="line">Y   I   R</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">convert</span><span class="params">(String s, <span class="keyword">int</span> numRows)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">char</span>[] c = s.toCharArray();</span><br><span class="line">        <span class="keyword">char</span>[] t = <span class="keyword">new</span> <span class="keyword">char</span>[c.length];</span><br><span class="line">        <span class="keyword">int</span> i, j, k = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">if</span>(numRows != <span class="number">1</span>)&#123; <span class="comment">//所给行数不为1时</span></span><br><span class="line">            <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; numRows;i++)&#123;</span><br><span class="line">                <span class="keyword">int</span> flag = <span class="number">1</span>;</span><br><span class="line">                <span class="keyword">int</span> num = i;</span><br><span class="line">                <span class="keyword">while</span>(num &lt; s.length())&#123; <span class="comment">//读取整个字符数组</span></span><br><span class="line">                    <span class="keyword">if</span>(i == <span class="number">0</span> || i == numRows - <span class="number">1</span>)&#123; <span class="comment">//如果是第一行或者最后一行时，两个下标的距离为(numRows - 1)*2</span></span><br><span class="line">                        t[k++] = c[num];</span><br><span class="line">                        num = num + (numRows - <span class="number">1</span>)*<span class="number">2</span>;</span><br><span class="line">                    &#125;<span class="keyword">else</span>&#123; <span class="comment">//对于中间的行数，因行数不同每回下标的距离增加是不定的，设置标签位，对于第i行第一个元素，下一个元素的下标增加为(numRows - 1)*2 - i*2，再下一个距离为i*2，之后循环</span></span><br><span class="line">                        <span class="keyword">if</span>(flag%<span class="number">2</span> == <span class="number">1</span>)&#123;</span><br><span class="line">                            t[k++] = c[num];</span><br><span class="line">                            num = num + (numRows - <span class="number">1</span>)*<span class="number">2</span> - i*<span class="number">2</span>;</span><br><span class="line">                            flag = <span class="number">0</span>;</span><br><span class="line">                        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                            t[k++] = c[num];</span><br><span class="line">                            num = num + i*<span class="number">2</span>;</span><br><span class="line">                            flag = <span class="number">1</span>;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123; <span class="comment">//当所给行数为1时直接输出即可</span></span><br><span class="line">            t = c;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> String.valueOf(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="8M-取出字符串中以数字带头的数值，考虑正负号"><a href="#8M-取出字符串中以数字带头的数值，考虑正负号" class="headerlink" title="8M.取出字符串中以数字带头的数值，考虑正负号"></a>8M.取出字符串中以数字带头的数值，考虑正负号</h2><p>mplement <code>atoi</code> which converts a string to an integer.<br>The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value.<br>The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function.<br>If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed.<br>If no valid conversion could be performed, a zero value is returned.</p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>Only the space character <code>&#39; &#39;</code> is considered as whitespace character.</li>
+<li>Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1]. If the numerical value is out of the range of representable values, INT_MAX (2^31 − 1) or INT_MIN (−2^31) is returned.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">myAtoi</span><span class="params">(String str)</span> </span>&#123;</span><br><span class="line">        String s = str.trim(); <span class="comment">//去掉字符串中前导和尾随的空格</span></span><br><span class="line">        String t;</span><br><span class="line">        <span class="comment">//System.out.print(s);</span></span><br><span class="line">        <span class="keyword">if</span>(s.length() == <span class="number">0</span>)&#123; </span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(s.charAt(<span class="number">0</span>)==<span class="string">'-'</span>||s.charAt(<span class="number">0</span>)==<span class="string">'+'</span>)&#123; <span class="comment">//如果首字符是正负号</span></span><br><span class="line">            <span class="keyword">if</span>(s.length() == <span class="number">1</span>)&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;<span class="keyword">else</span> <span class="keyword">if</span>(Character.isDigit(s.charAt(<span class="number">1</span>)))&#123; <span class="comment">//判断第二个字符是否是数字</span></span><br><span class="line">                <span class="keyword">int</span> i, j;</span><br><span class="line">                <span class="keyword">for</span>(i = <span class="number">1</span>;i &lt; s.length(); i++)&#123; <span class="comment">//遍历到第一个非数字字符</span></span><br><span class="line">                    <span class="keyword">if</span>(!Character.isDigit(s.charAt(i)))&#123;</span><br><span class="line">                        <span class="keyword">break</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                t = s.substring(<span class="number">0</span>, i) <span class="comment">//取出这个数字字符串，判断是否是Int范围内的值</span></span><br><span class="line">                <span class="comment">//BigInteger a = new BigInteger(t);</span></span><br><span class="line">                <span class="keyword">try</span>&#123;</span><br><span class="line">                    <span class="keyword">int</span> a = Integer.parseInt(t);</span><br><span class="line">                    <span class="keyword">return</span> a;</span><br><span class="line">                &#125;<span class="keyword">catch</span>(NumberFormatException e) &#123;</span><br><span class="line">                    <span class="keyword">if</span>(s.charAt(<span class="number">0</span>)==<span class="string">'-'</span>)&#123;</span><br><span class="line">                        <span class="keyword">return</span> Integer.MIN_VALUE;</span><br><span class="line">                    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                        <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;  </span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span> <span class="keyword">if</span>(Character.isDigit(s.charAt(<span class="number">0</span>)))&#123; <span class="comment">//对于无符号数字的处理，少了符号判断的步骤</span></span><br><span class="line">            <span class="keyword">int</span> i, j;</span><br><span class="line">            <span class="keyword">for</span>(i = <span class="number">0</span>;i &lt; s.length(); i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(!Character.isDigit(s.charAt(i)))&#123;</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            t = s.substring(<span class="number">0</span>, i);</span><br><span class="line">            <span class="comment">//BigInteger a = new BigInteger(t);</span></span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                    <span class="keyword">int</span> a = Integer.parseInt(t);</span><br><span class="line">                    <span class="keyword">return</span> a;</span><br><span class="line">                &#125;<span class="keyword">catch</span>(NumberFormatException e) &#123;</span><br><span class="line">                    <span class="keyword">return</span> Integer.MAX_VALUE;</span><br><span class="line">                &#125;  </span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;      </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="10H-判断字符串是否匹配正则表达式"><a href="#10H-判断字符串是否匹配正则表达式" class="headerlink" title="10H.判断字符串是否匹配正则表达式"></a>10H.判断字符串是否匹配正则表达式</h2><p>Given an input string (<code>s</code>) and a pattern (<code>p</code>), implement regular expression matching with support for <code>&#39;.&#39;</code> and <code>&#39;*&#39;</code>.<br><code>&#39;.&#39;</code> Matches any single character.<br><code>&#39;*&#39;</code>Matches zero or more of the preceding element.<br><span style="“color:red;”">这题有个坑，对于<code>&#39;.&#39;</code>任意字符的解析，前面不能加转义符，否则会匹配小数，对于<code>[]</code>中的<code>&#39;.&#39;</code>，也会匹配小数</span><br>这题自己暂时只会直接匹配和用Pattern.matcher(“regex”, “input”);<br>耗时比较久，有空深入思考一下<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isMatch</span><span class="params">(String s, String p)</span> </span>&#123;</span><br><span class="line">        StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; p.length(); i++)&#123; <span class="comment">//解析所给字符串</span></span><br><span class="line">            <span class="keyword">if</span>(p.charAt(i) == <span class="string">'.'</span>)&#123;</span><br><span class="line">                sb.append(<span class="string">"[\\s\\S]"</span>);</span><br><span class="line">                <span class="comment">//sb.append(p.charAt(i));</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                sb.append(p.charAt(i));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.print(sb);</span><br><span class="line">        <span class="keyword">return</span> s.matches(sb.toString());</span><br><span class="line">        <span class="comment">//return s.matches(p);</span></span><br><span class="line">        <span class="comment">//return Pattern.matches(p,s);</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="11M"><a href="#11M" class="headerlink" title="11M."></a>11M.</h2><h2 id="12M"><a href="#12M" class="headerlink" title="12M."></a>12M.</h2><h2 id="15M"><a href="#15M" class="headerlink" title="15M."></a>15M.</h2><h2 id="16M"><a href="#16M" class="headerlink" title="16M"></a>16M</h2><h2 id="17M"><a href="#17M" class="headerlink" title="17M"></a>17M</h2><h2 id="18M"><a href="#18M" class="headerlink" title="18M"></a>18M</h2><h2 id="19M"><a href="#19M" class="headerlink" title="19M"></a>19M</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/LeetCode/" rel="tag"># LeetCode</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/03/前端面试题整理/" rel="next" title="前端面试题整理">
+                <i class="fa fa-chevron-left"></i> 前端面试题整理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="讲道理也不听" />
+          <p class="site-author-name" itemprop="name">讲道理也不听</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+
+        <div id="music163player">	
+        	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=26494481&auto=0&height=32"></iframe>
+        </div>
+        
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#4H-求两个有序数组的中位数，要求时间复杂度O-m-n）"><span class="nav-number">1.</span> <span class="nav-text">4H.求两个有序数组的中位数，要求时间复杂度O(m+n）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6M-将给定的字符串按Z字型进行排列再按行读取"><span class="nav-number">2.</span> <span class="nav-text">6M.将给定的字符串按Z字型进行排列再按行读取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8M-取出字符串中以数字带头的数值，考虑正负号"><span class="nav-number">3.</span> <span class="nav-text">8M.取出字符串中以数字带头的数值，考虑正负号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#10H-判断字符串是否匹配正则表达式"><span class="nav-number">4.</span> <span class="nav-text">10H.判断字符串是否匹配正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#11M"><span class="nav-number">5.</span> <span class="nav-text">11M.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12M"><span class="nav-number">6.</span> <span class="nav-text">12M.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#15M"><span class="nav-number">7.</span> <span class="nav-text">15M.</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#16M"><span class="nav-number">8.</span> <span class="nav-text">16M</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#17M"><span class="nav-number">9.</span> <span class="nav-text">17M</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#18M"><span class="nav-number">10.</span> <span class="nav-text">18M</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#19M"><span class="nav-number">11.</span> <span class="nav-text">19M</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">讲道理也不听</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+</body>
+</html>

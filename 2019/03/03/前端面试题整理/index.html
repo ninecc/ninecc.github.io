@@ -94,18 +94,18 @@
 
 
 
-<meta name="description" content="整理记录找实习过程中自己准备以及网上面经里的面试题 HTMLCSSJSJqueryAJAX">
+<meta name="description" content="整理记录找实习过程中自己准备以及网上的面经 HTMLCSSJSJqueryAJAX">
 <meta name="keywords" content="面试">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端面试题整理">
 <meta property="og:url" content="http://yoursite.com/2019/03/03/前端面试题整理/index.html">
 <meta property="og:site_name" content="讲道理要听">
-<meta property="og:description" content="整理记录找实习过程中自己准备以及网上面经里的面试题 HTMLCSSJSJqueryAJAX">
+<meta property="og:description" content="整理记录找实习过程中自己准备以及网上的面经 HTMLCSSJSJqueryAJAX">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-03T14:32:57.044Z">
+<meta property="og:updated_time" content="2019-03-10T12:55:28.473Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试题整理">
-<meta name="twitter:description" content="整理记录找实习过程中自己准备以及网上面经里的面试题 HTMLCSSJSJqueryAJAX">
+<meta name="twitter:description" content="整理记录找实习过程中自己准备以及网上的面经 HTMLCSSJSJqueryAJAX">
 
 
 
@@ -362,14 +362,14 @@
       
 
       
-        <p>整理记录找实习过程中自己准备以及网上面经里的面试题</p>
+        <p>整理记录找实习过程中自己准备以及网上的面经</p>
 <p><a href="#html">HTML</a><br><a href="#css">CSS</a><br><a href="#js">JS</a><br><a href="#jquery">Jquery</a><br><a href="#ajax">AJAX</a></p>
 <a id="more"></a>
 <h1 id="HTML"><a href="#HTML" class="headerlink" title="HTML"></a><strong>HTML</strong></h1><h1 id="CSS"><a href="#CSS" class="headerlink" title="CSS"></a><strong>CSS</strong></h1><p><a href="#css盒模型">1. CSS盒模型</a><br><a href="#画一条0-5px的线">2. 画一条0.5px的线</a><br><a href="#浮动">3. 浮动</a><br><a href="#position">4. position</a><br><a href="#选择器">5. 选择器</a><br><a href="#优先级">6. 优先级</a><br><a href="#布局">7. 布局</a><br><a href="#雪碧图">8. 雪碧图</a><br><a href="#隐藏元素">9. 隐藏元素</a></p>
 <h2 id="1-CSS盒模型"><a href="#1-CSS盒模型" class="headerlink" title="1. CSS盒模型"></a><strong>1. CSS盒模型</strong></h2><ol>
-<li><p>W3C标准盒子模型<br>包括margin、border、padding、content,并且content部分不包含其他部分</p>
+<li><p>W3C标准盒子模型<br>包括margin、border、padding、content,并且content部分不包含其他部分，宽高为content部分</p>
 </li>
-<li><p>IE盒子模型<br>包括margin、border、padding、content，和w3c盒子模型不同的是，IE盒子模型的content部分包含了padding和border.</p>
+<li><p>IE盒子模型<br>包括margin、border、padding、content，和w3c盒子模型不同的是，IE盒子模型的content部分包含了padding和border.宽高包括padding和border</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>zszs&gt;<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
@@ -379,7 +379,29 @@
 <p>这样的话，viewport的宽度就是原本的750px，所以1个px还是1px，正常画就行，但这样也意味着UI需要按2倍图的出，整体面面的单位都会放大一倍。</p>
 <p>在iPhone X和一些安卓手机等dpr = 3的设备上，需要设置scale为0.333333，这个时候就是3倍地画了。</p>
 <p>综上讨论了像素和viewport的一些概念，并介绍和比较了在高清屏上画0.5px的几种方法——可以通过直接设置宽高border为0.5px、设置box-shadow的垂直方向的偏移量为0.5px、借助线性渐变linear-gradient、使用transform: scaleY(0.5)的方法，使用SVG的方法。最后发现SVG的方法兼容性和效果都是最好的，所以在viewport是1的情况下，可以使用SVG画0.5px，而如果viewport的缩放比例不是1的话，那么直接画1px即可。</p>
-<h2 id="3-浮动"><a href="#3-浮动" class="headerlink" title="3. 浮动"></a><strong>3. 浮动</strong></h2><h2 id="4-position"><a href="#4-position" class="headerlink" title="4. position"></a><strong>4. position</strong></h2><h2 id="5-选择器"><a href="#5-选择器" class="headerlink" title="5. 选择器"></a><strong>5. 选择器</strong></h2><h2 id="6-优先级"><a href="#6-优先级" class="headerlink" title="6. 优先级"></a><strong>6. 优先级</strong></h2><h2 id="7-布局"><a href="#7-布局" class="headerlink" title="7. 布局"></a><strong>7. 布局</strong></h2><h2 id="8-雪碧图"><a href="#8-雪碧图" class="headerlink" title="8. 雪碧图"></a><strong>8. 雪碧图</strong></h2><h2 id="9-隐藏元素"><a href="#9-隐藏元素" class="headerlink" title="9. 隐藏元素"></a><strong>9. 隐藏元素</strong></h2><h1 id="JS"><a href="#JS" class="headerlink" title="JS"></a><strong>JS</strong></h1><p><a href="#1-0-1-0-2-0-3-return-false">1. 0.1+0.2===0.3 return false</a></p>
+<h2 id="3-浮动"><a href="#3-浮动" class="headerlink" title="3. 浮动"></a><strong>3. 浮动</strong></h2><p>行内元素无法设置宽高，元素浮动后可以设置宽高<br>浮动的字围效果，挡住标签但不挡文字<br>一个浮动的元素，如果没有设置width，那么将自动收缩为内容的宽度（这点非常像行内元素）<br>两个子浮动元素不会撑开父元素</p>
+<p><strong>浮动的清除</strong><br>1.给浮动子元素的祖先元素加高度<br>如果父元素没有设置高度，会导致不能给自己浮动的子元素撑起一个容器，导致子元素无法在内部正确浮动。</p>
+<p><strong>如果一个元素要浮动，那么它的祖先元素一定要有高度。</strong><br><strong>有高度的盒子，才能关住浮动</strong></p>
+<p>2.clear:both<br>表示自己的内部元素，不受其他盒子的影响<br>这种方法有一个非常大的、致命的问题，<strong>它所在的标签，margin属性失效了</strong>，两个div之间，没有任何的间隙了</p>
+<p>3.隔墙法<br>在这两个div中间用一个新的div隔开，然后给这个新的div设置<code>clear: both</code>属性。既然这个新的div无法设置margin属性，我们可以给它设置height，以达到margin的效果</p>
+<p>内墙法<br><strong>一个父亲是不能被浮动的儿子撑出高度的</strong><br>与外墙法相比，内墙法的优势（本质区别）在于：内墙法可以给它所在的家撑出宽度，即：box1的高度可以自适应内容<br>而外墙法，虽然一道墙可以把两个div隔开，但是这两个div没有高，也就是说，无法wrap_content</p>
+<p>4.overflow:hidden<br><code>overflow:hidden</code>的本意是清除溢出到盒子外面的文字。<br>一个父亲不能被自己浮动的儿子撑出高度。但是，只要给父亲加上<code>overflow:hidden</code>那么，父亲就能被儿子撑出高了。这是一个偏方。<br>并且<code>overflow:hidden</code>能够让margin生效</p>
+<h2 id="4-position"><a href="#4-position" class="headerlink" title="4. position"></a><strong>4. position</strong></h2><p><strong>position:relative 相对定位</strong><br>不会脱离文档流</p>
+<p><strong>position:fixed 相对浏览器定位</strong><br>它会脱离文档流</p>
+<p><strong>position:absolute 绝对定位</strong><br>生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位</p>
+<p><strong>利用给父元素设置<code>position:relative</code>属性，再将子元素设置为<code>position:absolute</code>就可以在文档流中实现需要的定位</strong></p>
+<ol>
+<li>position: relative;不会脱离文档流，position: fixed;position: absolute;会脱离文档流</li>
+<li>position: relative; 相对于自己在文档流中的初始位置偏移定位。</li>
+<li>position: fixed; 相对于浏览器窗口定位。</li>
+<li>position: absolute; 是相对于父级非position:static 浏览器定位。 </li>
+</ol>
+<ul>
+<li>如果没有任何一个父级元素是非position:static属性，则会相对于文档定位。</li>
+<li>这里它的父级元素是包含爷爷级元素、祖爷爷级元素、祖宗十八代级元素的。任意一级都可以。</li>
+<li>如果它的父级元素和爷爷级元素都是非position:static 属性，则，它会选择距离最近的父元素。<h2 id="5-选择器"><a href="#5-选择器" class="headerlink" title="5. 选择器"></a><strong>5. 选择器</strong></h2></li>
+</ul>
+<h2 id="6-优先级"><a href="#6-优先级" class="headerlink" title="6. 优先级"></a><strong>6. 优先级</strong></h2><h2 id="7-布局"><a href="#7-布局" class="headerlink" title="7. 布局"></a><strong>7. 布局</strong></h2><h2 id="8-雪碧图"><a href="#8-雪碧图" class="headerlink" title="8. 雪碧图"></a><strong>8. 雪碧图</strong></h2><h2 id="9-隐藏元素"><a href="#9-隐藏元素" class="headerlink" title="9. 隐藏元素"></a><strong>9. 隐藏元素</strong></h2><h1 id="JS"><a href="#JS" class="headerlink" title="JS"></a><strong>JS</strong></h1><p><a href="#1-0-1-0-2-0-3-return-false">1. 0.1+0.2===0.3 return false</a></p>
 <h2 id="1-（0-1-0-2-0-3）-return-false"><a href="#1-（0-1-0-2-0-3）-return-false" class="headerlink" title="1. （0.1 + 0.2 === 0.3） return false"></a><strong>1. （0.1 + 0.2 === 0.3） return false</strong></h2><p>浮点数计算是不精确的，返回式实际上是这样的：</p>
 <p><code>0.1 + 0.2 = 0.30000000000000004</code></p>
 <p><code>0.1 + 0.2 - 0.3 = 5.551115123125783e-17</code></p>
@@ -387,7 +409,7 @@
 <p><code>5.551115123125783e-17 &lt; Number.EPSILON * Math.pow(2, 2) // true</code></p>
 <p>因此， Number.EPSILON 的实质是一个可以接受的最小误差范围。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">withinErrorMargin</span> (<span class="params">left, right</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Math</span>.abs(left - right) &lt; <span class="built_in">Number</span>.EPSILON * <span class="built_in">Math</span>.pow(<span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.1</span> + <span class="number">0.2</span> === <span class="number">0.3</span> <span class="comment">// false</span></span><br><span class="line">withinErrorMargin(<span class="number">0.1</span> + <span class="number">0.2</span>, <span class="number">0.3</span>) <span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="number">1.1</span> + <span class="number">1.3</span> === <span class="number">2.4</span> <span class="comment">// false</span></span><br><span class="line">withinErrorMargin(<span class="number">1.1</span> + <span class="number">1.3</span>, <span class="number">2.4</span>) <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0.1 + 0.2 === 0.3 // false</span><br><span class="line">withinErrorMargin(0.1 + 0.2, 0.3) // true</span><br><span class="line"></span><br><span class="line">1.1 + 1.3 === 2.4 // false</span><br><span class="line">withinErrorMargin(1.1 + 1.3, 2.4) // true</span><br></pre></td></tr></table></figure>
 <p>同时发现了一篇讲浮点数的运算的文章，附上链接<a href="https://segmentfault.com/a/1190000015051329" target="_blank" rel="noopener">0.1 + 0.2 != 0.3背后的原理</a></p>
 <h1 id="Jquery"><a href="#Jquery" class="headerlink" title="Jquery"></a><strong>Jquery</strong></h1><h1 id="AJAX"><a href="#AJAX" class="headerlink" title="AJAX"></a><strong>AJAX</strong></h1>
       
@@ -428,6 +450,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/03/07/LeetCode-3-4-3-10/" rel="prev" title="LeetCode(3.4-3.10)">
+                LeetCode(3.4-3.10) <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -504,7 +530,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-count">14</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -515,7 +541,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -526,7 +552,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
