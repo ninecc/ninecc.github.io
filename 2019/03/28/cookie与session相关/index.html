@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="讲道理要听">
 <meta property="og:description" content="js中Cookie与Session相关整理cookie是通过在客户端记录信息确定用户身份的，而session则通过在服务器端记录信息确定用户身份。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-29T02:11:18.590Z">
+<meta property="og:updated_time" content="2019-03-29T02:24:25.635Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="cookie与session相关">
 <meta name="twitter:description" content="js中Cookie与Session相关整理cookie是通过在客户端记录信息确定用户身份的，而session则通过在服务器端记录信息确定用户身份。">
@@ -393,6 +393,7 @@
 <li>如果客户端的浏览器禁用了 <code>Cookie</code> 怎么办？一般这种情况下，会使用一种叫做<code>URL</code>重写的技术来进行会话跟踪，即每次<code>HTTP</code>交互，<code>URL</code>后面都会被附加上</li>
 </ul>
 <p>js中操作session主要采用sessionStorage，提供了4中主要的方法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sessionStorage.setItem(key,value);<span class="comment">//设置指定session值</span></span><br><span class="line">sessionStorage.getItem(key,value);<span class="comment">//获取指定session值</span></span><br><span class="line">sessionStorage.removeItem(key);<span class="comment">//移除指定session</span></span><br><span class="line">sessionStorage.clear();<span class="comment">//清空session</span></span><br></pre></td></tr></table></figure></p>
+<p>localStorage和sessionStorage都具有相同的操作方法，例如setItem、getItem和removeItem等</p>
 <h1 id="Cookie和Session的区别"><a href="#Cookie和Session的区别" class="headerlink" title="Cookie和Session的区别"></a><strong>Cookie和Session的区别</strong></h1><ul>
 <li><code>cookie</code>数据存放在客户的浏览器上，<code>session</code>数据放在服务器上（一般以内存、数据库、文件形式）。</li>
 <li>cookie不是很安全，别人可以分析存放在本地的cookie并进行cookie欺骗，考虑*到安全应当使用session</li>
@@ -410,8 +411,44 @@
 <li>cookie数据始终在同源的http请求中携带（即使不需要），即cookie在浏览器和服务器间来回传递，而sessionStorage和localStorage不会自动把数据发送给服务器，仅在本地保存。cookie数据还有路径（path）的概念，可以限制cookie只属于某个路径下 </li>
 <li>存储大小限制也不同，cookie数据不能超过4K，同时因为每次http请求都会携带cookie、所以cookie只适合保存很小的数据，如会话标识。sessionStorage和localStorage虽然也有存储大小的限制，但比cookie大得多，可以达到5M或更大 </li>
 <li>数据有效期不同，sessionStorage：仅在当前浏览器窗口关闭之前有效；localStorage：始终有效，窗口或浏览器关闭也一直保存，因此用作持久数据；cookie：只在设置的cookie过期时间之前有效，即使窗口关闭或浏览器关闭 </li>
-<li>作用域不同，sessionStorage不在不同的浏览器窗口中共享，即使是同一个页面；localstorage在所有同源窗口中都是共享的；cookie也是在所有同源窗口中都是共享的<br>| 特性 | Cookie | localStorage | sessionStorage |<br>| – | —— | — | — |<br>| 数据的生命期 | 一般由服务器生成，可设置失效时间。如果在浏览器端生成Cookie，默认是关闭浏览器后失效 | 除非被清除，否则永久保存 | 仅在当前会话下有效，关闭页面或浏览器后被清除 |<br>| 存放数据大小 | 4K左右 | 一般为5MB |<br>| 与服务器端通信 | 每次都会携带在HTTP头中，如果使用cookie保存过多数据会带来性能问题 | 仅在客户端（即浏览器）中保存，不参与和服务器的通信 |<br>| 易用性 | 需要程序员自己封装，源生的Cookie接口不友好 | 源生接口可以接受，亦可再次封装来对Object和Array有更好的支持 |</li>
+<li>作用域不同，sessionStorage不在不同的浏览器窗口中共享，即使是同一个页面；localstorage在所有同源窗口中都是共享的；cookie也是在所有同源窗口中都是共享的</li>
 </ol>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>Cookie</th>
+<th>localStorage</th>
+<th>sessionStorage</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>数据的生命期</td>
+<td>一般由服务器生成，可设置失效时间。如果在浏览器端生成Cookie，默认是关闭浏览器后失效</td>
+<td>除非被清除，否则永久保存</td>
+<td>仅在当前会话下有效，关闭页面或浏览器后被清除</td>
+</tr>
+<tr>
+<td>存放数据大小</td>
+<td>4K左右</td>
+<td>一般为5MB</td>
+<td>一般为5MB</td>
+</tr>
+<tr>
+<td>与服务器端通信</td>
+<td>每次都会携带在HTTP头中，如果使用cookie保存过多数据会带来性能问题</td>
+<td>仅在客户端（即浏览器）中保存，不参与和服务器的通信</td>
+<td>仅在客户端（即浏览器）中保存，不参与和服务器的通信</td>
+</tr>
+<tr>
+<td>易用性</td>
+<td>需要程序员自己封装，源生的Cookie接口不友好</td>
+<td>源生接口可以接受，亦可再次封装来对Object和Array有更好的支持</td>
+<td>源生接口可以接受，亦可再次封装来对Object和Array有更好的支持</td>
+</tr>
+</tbody>
+</table>
 <p><strong>参考文章</strong></p>
 <p><a href="https://segmentfault.com/a/1190000011844051" target="_blank" rel="noopener">JS学习之cookie和session</a><br> <a href="https://www.cnblogs.com/zr123/p/8086525.html" target="_blank" rel="noopener">Cookie、session和localStorage、以及sessionStorage之间的区别</a></p>
 
