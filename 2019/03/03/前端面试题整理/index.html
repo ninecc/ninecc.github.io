@@ -105,7 +105,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/03/前端面试题整理/HTML全局属性.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/03/前端面试题整理/setAttribute和getAttribute.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/03/前端面试题整理/get和post的区别.png">
-<meta property="og:updated_time" content="2019-03-28T03:49:22.314Z">
+<meta property="og:updated_time" content="2019-04-02T11:58:07.894Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试题整理">
 <meta name="twitter:description" content="整理记录找实习过程中自己准备以及网上的面经 HTMLCSSJSJqueryAJAX">
@@ -389,10 +389,8 @@
 <li>link 支持使用 js 控制 DOM 去改变样式，而@import 不支持;</li>
 </ul>
 <h2 id="简述一下src与href的区别"><a href="#简述一下src与href的区别" class="headerlink" title="简述一下src与href的区别"></a><strong>简述一下src与href的区别</strong></h2><p>src用于替换当前元素， href 用于在当前文档和引用资源之间确立联系。</p>
-<p>src是 source 的缩写，指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求 src 资源时会将其指向的资源下载并应用到文档内，例如 js 脚本， img 图片和 frame 等元素。</p>
-<p><script src="js.js"></script><br>当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。这也是为什么将js脚本放在底部而不是头部。</p>
-<p>href是 Hypertext Reference 的缩写，指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，如果我们在文档中添加</p>
-<p><link href="common.css" rel="stylesheet"><br>那么浏览器会识别该文档为css文件，就会并行下载资源并且不会停止对当前文档的处理。这也是为什么建议使用 link 方式来加载 css ，而不是使用@import 方式。</p>
+<p>src是 source 的缩写，指向外部资源的位置，指向的内容将会嵌入到文档中当前标签所在位置；在请求 src 资源时会将其指向的资源下载并应用到文档内，例如 js 脚本， img 图片和 frame 等元素。<br><code>&lt;script src =&#39;js.js&#39;&gt;&lt;/script&gt;</code><br>当浏览器解析到该元素时，会暂停其他资源的下载和处理，直到将该资源加载、编译、执行完毕，图片和框架等元素也如此，类似于将所指向资源嵌入当前标签内。这也是为什么将js脚本放在底部而不是头部。</p>
+<p>href是 Hypertext Reference 的缩写，指向网络资源所在位置，建立和当前元素（锚点）或当前文档（链接）之间的链接，如果我们在文档中添加<br><code>&lt;link href=&#39;common.css&#39; rel=&#39;stylesheet&#39;/&gt;</code><br>那么浏览器会识别该文档为css文件，就会并行下载资源并且不会停止对当前文档的处理。这也是为什么建议使用 link 方式来加载 css ，而不是使用@import 方式。</p>
 <h2 id="介绍一下对浏览器内核的理解"><a href="#介绍一下对浏览器内核的理解" class="headerlink" title="介绍一下对浏览器内核的理解"></a><strong>介绍一下对浏览器内核的理解</strong></h2><p>主要分成两个部分：渲染引擎(Render Engine)和JS引擎。</p>
 <p><strong>渲染引擎：</strong> 负责取得网页的内容(html,xml和图像等)，整理讯息(例如假如css)，以及计算网页的显示方式，然后输出到显示器或打印机。浏览器的内核的不同对于网页的语法解释会有不同，所以渲染的效果也不同。所有网页浏览器、电子邮件客户端以及它需要编辑、显示网络内容的应用程序都需要内核。</p>
 <p><strong>JS引擎：</strong> 解析和执行JavaScript来实现网页的动态效果。</p>
@@ -494,7 +492,7 @@
 </ol>
 <p><strong>display：block</strong></p>
 <ol>
-<li>block元素可以包含block元素和inline元素，块级元素一般作为容器出现，用来组织结构，但并不全是如此。有些块级元素，如<form>只能包含块级元素；p 元素，只能包含inline元素，而不能包含block元素，也有一些块级元素既可以包含块级，也可以包含行级元素。</form></li>
+<li>block元素可以包含block元素和inline元素，块级元素一般作为容器出现，用来组织结构，但并不全是如此。有些块级元素，如<code>&lt;form&gt;</code>只能包含块级元素；p 元素，只能包含inline元素，而不能包含block元素，也有一些块级元素既可以包含块级，也可以包含行级元素。</li>
 <li>block元素会独占一行，多个block元素会各自新起一行。默认情况下，block元素宽度自动填满其父元素宽度。</li>
 <li>block元素可以设置width,height属性。块级元素即使设置了宽度,仍然是独占一行。当只设置了height属性时，则width默认是其父类元素的宽度。</li>
 <li>block元素可以设置margin和padding属性。</li>
