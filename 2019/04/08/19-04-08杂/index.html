@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="js杂项," />
 
 
 
@@ -94,14 +94,18 @@
 
 
 
+<meta name="description" content="记录一下不懂的小知识点">
+<meta name="keywords" content="js杂项">
 <meta property="og:type" content="article">
-<meta property="og:title" content="js中的类">
-<meta property="og:url" content="http://yoursite.com/2019/04/07/js中的类/index.html">
+<meta property="og:title" content="19.04.08杂">
+<meta property="og:url" content="http://yoursite.com/2019/04/08/19-04-08杂/index.html">
 <meta property="og:site_name" content="讲道理要听">
+<meta property="og:description" content="记录一下不懂的小知识点">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-07T03:00:44.372Z">
+<meta property="og:updated_time" content="2019-04-08T09:22:33.463Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="js中的类">
+<meta name="twitter:title" content="19.04.08杂">
+<meta name="twitter:description" content="记录一下不懂的小知识点">
 
 
 
@@ -130,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/07/js中的类/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/04/08/19-04-08杂/"/>
 
 
 
 
 
-  <title>js中的类 | 讲道理要听</title>
+  <title>19.04.08杂 | 讲道理要听</title>
   
 
 
@@ -269,7 +273,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/07/js中的类/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/08/19-04-08杂/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="讲道理也不听">
@@ -286,7 +290,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">js中的类</h1>
+          <h1 class="post-title" itemprop="name headline">19.04.08杂</h1>
         
 
         <div class="post-meta">
@@ -298,8 +302,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-07T11:00:44+08:00">
-                2019-04-07
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-08T16:53:49+08:00">
+                2019-04-08
               </time>
             
 
@@ -336,7 +340,14 @@
       
 
       
-        
+        <p>记录一下不懂的小知识点</p>
+<a id="more"></a>
+<h1 id="一道思考题"><a href="#一道思考题" class="headerlink" title="一道思考题"></a>一道思考题</h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = &#123;<span class="attr">n</span>: <span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> b = a;</span><br><span class="line">a.x = a = &#123;<span class="attr">n</span>: <span class="number">2</span>&#125;;</span><br><span class="line"></span><br><span class="line">a.x 	<span class="comment">// --&gt; undefined</span></span><br><span class="line">b.x 	<span class="comment">// --&gt; &#123;n: 2&#125;</span></span><br></pre></td></tr></table></figure>
+<p>个人理解：<br><code>.</code>的优先级高于<code>=</code>，所以先执行<code>a.x</code>，也就是向a、b共同指向的对象里添加了属性x（undefined）变成了<code>{n: 1，x:undefined}</code>，此时<code>a.x</code>与<code>b.x</code>都是<code>undefined</code></p>
+<p>赋值时先执行<code>a = {n: 2}</code>，此时a的引用被改变，b仍然指向之前添加了x属性的对象<code>{n: 1，x:undefined}</code></p>
+<p>接着执行<code>a.x = a</code>，此时<code>a.x</code>是对象<code>{n: 1，x:undefined}</code>里的属性值x，因为前面已经解析了a.x是对象<code>{n: 1，x:undefined}</code>里的x，不会再次解析，那么这条语句就是指将新的a对象<code>{n: 2}</code>赋值给x，<br>这里相当于<code>b.x</code>接受了a的值，即<code>b.x = {n: 2}</code></p>
+<p>参考文章<br><a href="https://www.cnblogs.com/huaan011/p/4381703.html" target="_blank" rel="noopener">连续赋值与求值顺序</a></p>
+
       
     </div>
     
@@ -351,6 +362,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/js杂项/" rel="tag"># js杂项</a>
+          
+        </div>
+      
 
       
       
@@ -360,8 +377,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/07/ES6新特性/" rel="next" title="ES6新特性">
-                <i class="fa fa-chevron-left"></i> ES6新特性
+              <a href="/2019/04/07/数组方法/" rel="next" title="数组方法">
+                <i class="fa fa-chevron-left"></i> 数组方法
               </a>
             
           </div>
@@ -369,10 +386,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/04/07/数组方法/" rel="prev" title="数组方法">
-                数组方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -424,8 +437,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -492,6 +514,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一道思考题"><span class="nav-number">1.</span> <span class="nav-text">一道思考题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
