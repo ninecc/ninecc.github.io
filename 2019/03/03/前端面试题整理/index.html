@@ -105,7 +105,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/03/03/前端面试题整理/HTML全局属性.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/03/前端面试题整理/setAttribute和getAttribute.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/03/前端面试题整理/get和post的区别.png">
-<meta property="og:updated_time" content="2019-04-20T13:17:06.735Z">
+<meta property="og:updated_time" content="2019-04-20T14:53:38.889Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端面试题整理">
 <meta name="twitter:description" content="整理记录找实习过程中自己准备以及网上的面经 HTMLCSSJSJqueryAJAX">
@@ -463,10 +463,9 @@
 <li>如果没有任何一个父级元素是非position:static属性，则会相对于文档定位。</li>
 <li>这里它的父级元素是包含爷爷级元素、祖爷爷级元素、祖宗十八代级元素的。任意一级都可以。</li>
 <li>如果它的父级元素和爷爷级元素都是非position:static 属性，则，它会选择距离最近的父元素。</li>
-<li><h2 id="5-选择器"><a href="#5-选择器" class="headerlink" title="5. 选择器"></a><strong>5. 选择器</strong></h2></li>
 </ul>
-<p><strong>复合选择器：</strong></p>
-<p>后代选择器： p span 选择p元素的所有子孙元素中的span元素<br>子女选择器： p&gt;span 选择p元素的所有子女元素中的span元素<br>组合选择器： p#start 选择id为start的p元素(交集) 群组选择器： em, .even 选择em元素或者类名为even的元素<br>相邻兄弟选择器： h1 + p 选择h1之后的相邻兄弟元素(必须为p元素<br>后续兄弟选择器： h1 ~ p 选择在 h1之后所有兄弟元素中的p元素 </p>
+<h2 id="5-选择器"><a href="#5-选择器" class="headerlink" title="5. 选择器"></a><strong>5. 选择器</strong></h2><p><strong>复合选择器：</strong></p>
+<p>后代选择器： p span 选择p元素的所有子孙元素中的span元素<br>子女选择器： p&gt;span 选择p元素的所有子女元素中的span元素<br>组合选择器： p#start 选择id为start的p元素(交集) 群组选择器： em, .even 选择em元素或者类名为even的元素<br>相邻兄弟选择器： h1 + p 选择h1之后的相邻兄弟元素必须为p元素<br>后续兄弟选择器： h1 ~ p 选择在h1之后所有兄弟元素中的p元素 </p>
 <p><strong>否定选择器：</strong><br>p:not(#start) 选择所有id不是start的p元素</p>
 <p><strong>nth-child选择器(结构伪类)：</strong><br>p:first-child p的双亲的第一个子女<br>p:last-child p的双亲的最后一个子女<br>p:only-child p的双亲的唯一一个子女<br>p:nth-child(5) p的双亲的第5个子女<br>p:nth-child(even)  p的双亲的第偶数个子女 (奇数:odd)<br>p:nth-child(3n+1) p的双亲的选择第1、 4、 7、 …个子女<br>p:nth-last-child(5) p的双亲的倒数第5个子女</p>
 <p>附上链接<a href="https://www.cnblogs.com/AllenChou/p/4684753.html" target="_blank" rel="noopener">最全CSS3选择器</a></p>
@@ -483,7 +482,7 @@
 <p>3.BFC就是页面上的一个隔离的独立容器，容器里面的子元素不会影响到外面的元素。反之也如此, 文字环绕效果，设置float<br>4.BFC的区域不会与float box重叠。<br>5.计算BFC的高度，浮动元素也参与计算 </p>
 <p>BFC作用：<br>1.自适应两栏布局<br>2.可以阻止元素被浮动元素覆盖<br>3.可以包含浮动元素—清除内部浮动 原理:：触发父div的BFC属性，使下面的子div都处在父div的同一个BFC区域之内<br>4.分属于不同的BFC时，可以阻止margin重叠 </p>
 <h2 id="8-雪碧图"><a href="#8-雪碧图" class="headerlink" title="8. 雪碧图"></a><strong>8. 雪碧图</strong></h2><p>使用雪碧图可以减少网络请求的次数，加快允许的速度<br>通过background-position，去定位图片在屏幕的哪个位置<br>属性值均为负数（靠移动背景图实现）</p>
-<h2 id="9-隐藏元素"><a href="#9-隐藏元素" class="headerlink" title="9. 隐藏元素"></a><strong>9. 隐藏元素</strong></h2><p>1.opacity：0,该元素隐藏起来了，但不会改变页面布局，并且，如果该元素已经绑定了一些事件，如click事件也能触发<br>2.visibility:hidden,该元素隐藏起来了，但不会改变页面布局，但是不会触发该元素已经绑定的事件<br>3.display:node, 把元素隐藏起来，并且会改变页面布局，可以理解成在页面中把该元素删掉</p>
+<h2 id="9-隐藏元素"><a href="#9-隐藏元素" class="headerlink" title="9. 隐藏元素"></a><strong>9. 隐藏元素</strong></h2><p>1.opacity：0,该元素隐藏起来了，但不会改变页面布局，并且，如果该元素已经绑定了一些事件，如click事件也能触发<br>2.visibility:hidden,该元素隐藏起来了，但不会改变页面布局，但是不会触发该元素已经绑定的事件<br>3.display:none,把元素隐藏起来，并且会改变页面布局，可以理解成在页面中把该元素删掉</p>
 <h2 id="10-block，inline和inline-block概念和区别"><a href="#10-block，inline和inline-block概念和区别" class="headerlink" title="10.block，inline和inline-block概念和区别"></a><strong>10.block，inline和inline-block概念和区别</strong></h2><p><strong>总体概念</strong></p>
 <ol>
 <li>根据CSS规范的规定，每一个网页元素都有一个display属性，用于确定该元素的类型，每一个元素都有默认的display属性值，比如div元素，它的默认display属性值为“block”，称为“块级”元素(block-level)；而span元素的默认display属性值为“inline”，称为“行内”元素。</li>
