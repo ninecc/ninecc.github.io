@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="讲道理要听">
 <meta property="og:description" content="正则表达式学习总结">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-27T03:52:45.340Z">
+<meta property="og:updated_time" content="2019-04-23T07:55:51.065Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JS正则表达式">
 <meta name="twitter:description" content="正则表达式学习总结">
@@ -441,7 +441,7 @@
 </tr>
 <tr>
 <td style="text-align:center">(?&lt;!pattern)</td>
-<td style="text-align:left">反向否定预查，与正向否定预查类似，只是方向相反。例如”<code>(?&lt;!95or98orNTor2000)Windows</code>“能匹配”3.1Windows”中的”Windows”，但不能匹配”2000Windows”中的”Windows”。</td>
+<td style="text-align:left">反向否定预查，与正向否定预查类似，只是方向相反。例如”(?&lt;!95or98orNTor2000)Windows”能匹配”3.1Windows”中的”Windows”，但不能匹配”2000Windows”中的”Windows”。</td>
 </tr>
 <tr>
 <td style="text-align:center">x or y</td>
@@ -549,7 +549,7 @@
 <h1 id="贪婪和非贪婪模式"><a href="#贪婪和非贪婪模式" class="headerlink" title="贪婪和非贪婪模式"></a><strong>贪婪和非贪婪模式</strong></h1><p>1.正则表达式<strong>默认是贪婪模式</strong>，也就是说，正则匹配是会尽可能按照量词的上线多匹配<br>2.想要关闭正则表达式的贪婪模式，只需要这么写<code>/\d{1,8}?/</code>加上一个<code>?</code>即可。</p>
 <h1 id="正则表达式相关方法"><a href="#正则表达式相关方法" class="headerlink" title="正则表达式相关方法"></a><strong>正则表达式相关方法</strong></h1><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//RegExp的方法</span></span><br><span class="line">test() <span class="comment">// 接受一个参数，判断传入的字符串是否匹配正则表达式。</span></span><br><span class="line">exec() <span class="comment">// 接受一个参数，返回一个数组</span></span><br></pre></td></tr></table></figure>
 <p>如果 exec() 找到了匹配的文本，则返回一个结果数组。否则，返回 null。此数组的第 0 个元素是与正则表达式相匹配的文本，第 1 个元素是与 RegExpObject 的第 1 个子表达式相匹配的文本（如果有的话），第 2 个元素是与 RegExpObject 的第 2 个子表达式相匹配的文本（如果有的话），以此类推。除了数组元素和 length 属性之外，exec() 方法还返回两个属性。index 属性声明的是匹配文本的第一个字符的位置。input 属性则存放的是被检索的字符串 string。我们可以看得出，在调用非全局的 RegExp 对象的 exec() 方法时，返回的数组与调用方法 String.match() 返回的数组是相同的。</p>
-<p>但是，当 RegExpObject 是一个<font color="“red”"><strong>全局正则表达式</strong></font>时，exec() 的行为就稍微复杂一些。它会在 RegExpObject 的 lastIndex 属性指定的字符处开始检索字符串 string。当 exec() 找到了与表达式相匹配的文本时，在匹配后，它将把 RegExpObject 的 lastIndex 属性设置为匹配文本的最后一个字符的下一个位置。这就是说，可以通过反复调用 exec() 方法来遍历字符串中的所有匹配文本。当 exec() 再也找不到匹配的文本时，它将返回 null，并把 lastIndex 属性重置为 0。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//字符串有关正则的方法</span></span><br><span class="line">search() <span class="comment">// 接受一个参数，传入要搜索的正则表达式，如果匹配成功就返回第一个匹配结果的index，否则就返回-1</span></span><br><span class="line">match() <span class="comment">// 和正则表达式exec很像</span></span><br><span class="line">spilt() <span class="comment">// 将字符串分割为数组</span></span><br><span class="line">replace() <span class="comment">// 支持两个参数，第一个是寻找和正则匹配的，下一个是替换的内容</span></span><br></pre></td></tr></table></figure></p>
+<p>但是，当 RegExpObject 是一个 <font color="“red”">全局正则表达式</font> 时，exec() 的行为就稍微复杂一些。它会在 RegExpObject 的 lastIndex 属性指定的字符处开始检索字符串 string。当 exec() 找到了与表达式相匹配的文本时，在匹配后，它将把 RegExpObject 的 lastIndex 属性设置为匹配文本的最后一个字符的下一个位置。这就是说，可以通过反复调用 exec() 方法来遍历字符串中的所有匹配文本。当 exec() 再也找不到匹配的文本时，它将返回 null，并把 lastIndex 属性重置为 0。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//字符串有关正则的方法</span></span><br><span class="line">search() <span class="comment">// 接受一个参数，传入要搜索的正则表达式，如果匹配成功就返回第一个匹配结果的index，否则就返回-1</span></span><br><span class="line">match() <span class="comment">// 和正则表达式exec很像</span></span><br><span class="line">spilt() <span class="comment">// 将字符串分割为数组</span></span><br><span class="line">replace() <span class="comment">// 支持两个参数，第一个是寻找和正则匹配的，下一个是替换的内容</span></span><br></pre></td></tr></table></figure></p>
 <h1 id="常用的正则表达式"><a href="#常用的正则表达式" class="headerlink" title="常用的正则表达式"></a><strong>常用的正则表达式</strong></h1><p>1.写出正则表达式， 从一个字符串中提取链接地址<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> str = <span class="string">'IT面试题博客中包含很多  &lt;a href="http://hi.baidu.com/mianshiti/blog/category/微软面试题"&gt;微软面试题&lt;/a&gt;'</span>;</span><br><span class="line"><span class="keyword">let</span> regExp = <span class="regexp">/&lt;a(?: [^&gt;]*)+href="(.*)"(?: [^&gt;]*)*&gt;/</span>;</span><br><span class="line"><span class="built_in">console</span>.log(regExp.exec(str)[<span class="number">1</span>]);</span><br><span class="line"><span class="comment">//http://hi.baidu.com/mianshiti/blog/category/微软面试题</span></span><br></pre></td></tr></table></figure></p>
 <p>【这里不是特别理解为什么要使用(?:pattern)这种不获取匹配结果的模式】</p>
 <p>2.给定字符串str，检查其是否包含连续重复的字母，包含返回true，否则返回false。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">contain</span>(<span class="params">str</span>) </span>&#123;</span><br><span class="line">   <span class="keyword">return</span> <span class="regexp">/([a-zA-Z])\1/</span>.test(str);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(contain(<span class="string">"fdsaaf"</span>));</span><br></pre></td></tr></table></figure></p>
@@ -684,7 +684,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">27</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -706,7 +706,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-count">27</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
