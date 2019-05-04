@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="工具,js实现," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="用js实现base64加密解密">
+<meta name="keywords" content="工具,js实现">
+<meta property="og:type" content="article">
+<meta property="og:title" content="base64">
+<meta property="og:url" content="http://yoursite.com/2019/04/24/base64/index.html">
+<meta property="og:site_name" content="讲道理要听">
+<meta property="og:description" content="用js实现base64加密解密">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/04/24/base64/不足.png">
+<meta property="og:updated_time" content="2019-05-04T13:31:39.641Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="base64">
+<meta name="twitter:description" content="用js实现base64加密解密">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/24/base64/不足.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/24/base64/"/>
+
+
+
+
+
+  <title>base64 | 讲道理要听</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">讲道理要听</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">好好搬砖</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/24/base64/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="讲道理也不听">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="讲道理要听">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">base64</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-24T13:41:10+08:00">
+                2019-04-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络/" itemprop="url" rel="index">
+                    <span itemprop="name">网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>用js实现base64加密解密</p>
+<a id="more"></a>
+<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><h2 id="由来"><a href="#由来" class="headerlink" title="由来"></a>由来</h2><p>因为有些网络传送渠道并不支持所有的字节，例如传统的邮件只支持可见字符的传送，像ASCII码的控制字符就不能通过邮件传送。这样用途就受到了很大的限制，比如图片二进制流的每个字节不可能全部是可见字符，所以就传送不了。最好的方法就是在不改变传统协议的情况下，做一种扩展方案来支持二进制文件的传送。把不可打印的字符也能用可打印字符来表示，问题就解决了。Base64编码应运而生，<strong>Base64就是一种基于64个可打印字符来表示二进制数据的表示方法</strong></p>
+<h2 id="索引表"><a href="#索引表" class="headerlink" title="索引表"></a>索引表</h2><p>Base64，就是使用<code>&quot;A-Z、a-z、0-9、+、/&quot;</code>64个可打印字符来表示二进制数据的方法。Base64的索引与对应字符的关系如下表所示：<br></p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><p>表达64个字符需要6位bit（2的6次方=64）<br>而正常的字符使用8个bit表示，6和8的最小公倍数是24，因此我们将3个标准ASCII字符用4个base64字符来表示</p>
+<p>那么如果原本的8bit字符串长度不是3的倍数，那么对于不足的字符我们之间在后面添加=号即可<br>如下图中的例子：<br><img src="/2019/04/24/base64/不足.png"></p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><h2 id="控制台实现"><a href="#控制台实现" class="headerlink" title="控制台实现"></a>控制台实现</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Base64 = &#123;</span><br><span class="line">	_keyStr: <span class="string">"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/="</span>,</span><br><span class="line">	encode: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> t = <span class="string">""</span>;</span><br><span class="line">		<span class="keyword">var</span> n, r, i;</span><br><span class="line">		<span class="keyword">var</span> s, o, u, a;</span><br><span class="line">		<span class="keyword">var</span> f = <span class="number">0</span>;</span><br><span class="line">		e = Base64._utf8_encode(e);</span><br><span class="line">		<span class="keyword">while</span> (f &lt; e.length) &#123;</span><br><span class="line">			n = e.charCodeAt(f++);</span><br><span class="line">			r = e.charCodeAt(f++);</span><br><span class="line">			i = e.charCodeAt(f++);</span><br><span class="line">			s = n &gt;&gt; <span class="number">2</span>;</span><br><span class="line">			o = (n &amp; <span class="number">3</span>) &lt;&lt; <span class="number">4</span> | r &gt;&gt; <span class="number">4</span>;</span><br><span class="line">			u = (r &amp; <span class="number">15</span>) &lt;&lt; <span class="number">2</span> | i &gt;&gt; <span class="number">6</span>;</span><br><span class="line">			a = i &amp; <span class="number">63</span>;</span><br><span class="line">			<span class="keyword">if</span> (<span class="built_in">isNaN</span>(r)) &#123;</span><br><span class="line">				u = a = <span class="number">64</span></span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (<span class="built_in">isNaN</span>(i)) &#123;</span><br><span class="line">				a = <span class="number">64</span></span><br><span class="line">			&#125;</span><br><span class="line">			t = t + <span class="keyword">this</span>._keyStr.charAt(s) + <span class="keyword">this</span>._keyStr.charAt(o) + <span class="keyword">this</span>._keyStr.charAt(u) + <span class="keyword">this</span>._keyStr.charAt(a)</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> t</span><br><span class="line">	&#125;,</span><br><span class="line">	decode: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> t = <span class="string">""</span>;</span><br><span class="line">		<span class="keyword">var</span> n, r, i;</span><br><span class="line">		<span class="keyword">var</span> s, o, u, a;</span><br><span class="line">		<span class="keyword">var</span> f = <span class="number">0</span>;</span><br><span class="line">		e = e.replace(<span class="regexp">/[^A-Za-z0-9+/=]/g</span>, <span class="string">""</span>);</span><br><span class="line">		<span class="keyword">while</span> (f &lt; e.length) &#123;</span><br><span class="line">			s = <span class="keyword">this</span>._keyStr.indexOf(e.charAt(f++));</span><br><span class="line">			o = <span class="keyword">this</span>._keyStr.indexOf(e.charAt(f++));</span><br><span class="line">			u = <span class="keyword">this</span>._keyStr.indexOf(e.charAt(f++));</span><br><span class="line">			a = <span class="keyword">this</span>._keyStr.indexOf(e.charAt(f++));</span><br><span class="line">			n = s &lt;&lt; <span class="number">2</span> | o &gt;&gt; <span class="number">4</span>;</span><br><span class="line">			r = (o &amp; <span class="number">15</span>) &lt;&lt; <span class="number">4</span> | u &gt;&gt; <span class="number">2</span>;</span><br><span class="line">			i = (u &amp; <span class="number">3</span>) &lt;&lt; <span class="number">6</span> | a;</span><br><span class="line">			t = t + <span class="built_in">String</span>.fromCharCode(n);</span><br><span class="line">			<span class="keyword">if</span> (u != <span class="number">64</span>) &#123;</span><br><span class="line">				t = t + <span class="built_in">String</span>.fromCharCode(r)</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">if</span> (a != <span class="number">64</span>) &#123;</span><br><span class="line">				t = t + <span class="built_in">String</span>.fromCharCode(i)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		t = Base64._utf8_decode(t);</span><br><span class="line">		<span class="keyword">return</span> t</span><br><span class="line">	&#125;,</span><br><span class="line">	_utf8_encode: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">		e = e.replace(<span class="regexp">/\r\n/g</span>, <span class="string">"n"</span>);</span><br><span class="line">		<span class="keyword">var</span> t = <span class="string">""</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">var</span> n = <span class="number">0</span>; n &lt; e.length; n++) &#123;</span><br><span class="line">			<span class="keyword">var</span> r = e.charCodeAt(n);</span><br><span class="line">			<span class="keyword">if</span> (r &lt; <span class="number">128</span>) &#123;</span><br><span class="line">				t += <span class="built_in">String</span>.fromCharCode(r)</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (r &gt; <span class="number">127</span> &amp;&amp; r &lt; <span class="number">2048</span>) &#123;</span><br><span class="line">				t += <span class="built_in">String</span>.fromCharCode(r &gt;&gt; <span class="number">6</span> | <span class="number">192</span>);</span><br><span class="line">				t += <span class="built_in">String</span>.fromCharCode(r &amp; <span class="number">63</span> | <span class="number">128</span>)</span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				t += <span class="built_in">String</span>.fromCharCode(r &gt;&gt; <span class="number">12</span> | <span class="number">224</span>);</span><br><span class="line">				t += <span class="built_in">String</span>.fromCharCode(r &gt;&gt; <span class="number">6</span> &amp; <span class="number">63</span> | <span class="number">128</span>);</span><br><span class="line">				t += <span class="built_in">String</span>.fromCharCode(r &amp; <span class="number">63</span> | <span class="number">128</span>)</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> t</span><br><span class="line">	&#125;,</span><br><span class="line">	_utf8_decode: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> t = <span class="string">""</span>;</span><br><span class="line">		<span class="keyword">var</span> n = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">var</span> r = c1 = c2 = <span class="number">0</span>;</span><br><span class="line">		<span class="keyword">while</span> (n &lt; e.length) &#123;</span><br><span class="line">			r = e.charCodeAt(n);</span><br><span class="line">			<span class="keyword">if</span> (r &lt; <span class="number">128</span>) &#123;</span><br><span class="line">				t += <span class="built_in">String</span>.fromCharCode(r);</span><br><span class="line">				n++</span><br><span class="line">			&#125; <span class="keyword">else</span> <span class="keyword">if</span> (r &gt; <span class="number">191</span> &amp;&amp; r &lt; <span class="number">224</span>) &#123;</span><br><span class="line">				c2 = e.charCodeAt(n + <span class="number">1</span>);</span><br><span class="line">				t += <span class="built_in">String</span>.fromCharCode((r &amp; <span class="number">31</span>) &lt;&lt; <span class="number">6</span> | c2 &amp; <span class="number">63</span>);</span><br><span class="line">				n += <span class="number">2</span></span><br><span class="line">			&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">				c2 = e.charCodeAt(n + <span class="number">1</span>);</span><br><span class="line">				c3 = e.charCodeAt(n + <span class="number">2</span>);</span><br><span class="line">				t += <span class="built_in">String</span>.fromCharCode((r &amp; <span class="number">15</span>) &lt;&lt; <span class="number">12</span> | (c2 &amp; <span class="number">63</span>) &lt;&lt; <span class="number">6</span> | c3 &amp; <span class="number">63</span>);</span><br><span class="line">				n += <span class="number">3</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">return</span> t</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里解释一下为什么要在编码解码前进行utf-8编码处理</p>
+<p>我们知道计算机在处理信息时实际上是处理一堆二进制数，每一个二进制位能表示两种状态，因而8个二进制位可以表示256种状态，被叫做一个字节。</p>
+<p>最开始美国的ASCII码规定了128个字符编码，这其中包括32个不能被打印出来的控制符号，占用了一个字节的后7位，最前面统一为0</p>
+<p>但对于其他语言来说128个字符肯定是不够的，因而产生了Unicode编码，这里不详细展开，而utf-8是Unicode编码的一种应用广泛的实现方式</p>
+<p>它是一种变长字节编码方式，它的规则有两条：</p>
+<ul>
+<li>对于单字节的符号，字节的第一位设为0，后面7位为这个符号的 Unicode 码。因此对于英语字母，UTF-8 编码和 ASCII 码是相同的。</li>
+<li>对于n字节的符号（n &gt; 1），第一个字节的前n位都设为1，第n + 1位设为0，后面字节的前两位一律设为10。剩下的没有提及的二进制位，全部为这个符号的 Unicode 码。</li>
+</ul>
+<p>例如：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">1字节 0xxxxxxx </span><br><span class="line">2字节 110xxxxx 10xxxxxx </span><br><span class="line">3字节 1110xxxx 10xxxxxx 10xxxxxx </span><br><span class="line">4字节 11110xxx 10xxxxxx 10xxxxxx 10xxxxxx </span><br><span class="line">5字节 111110xx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx </span><br><span class="line">6字节 1111110x 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx 10xxxxxx</span><br></pre></td></tr></table></figure></p>
+<p>由此我们需要进行utf-8编码的处理来解析Unicode码表中的字符，由于我们的Unicode码最多使用到16位因而最多需要三字节</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/工具/" rel="tag"># 工具</a>
+          
+            <a href="/tags/js实现/" rel="tag"># js实现</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/24/R语言/" rel="next" title="R语言">
+                <i class="fa fa-chevron-left"></i> R语言
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="讲道理也不听" />
+          <p class="site-author-name" itemprop="name">讲道理也不听</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">29</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+
+        <div id="music163player">	
+        	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=26494481&auto=0&height=32"></iframe>
+        </div>
+        
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#由来"><span class="nav-number">1.1.</span> <span class="nav-text">由来</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#索引表"><span class="nav-number">1.2.</span> <span class="nav-text">索引表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原理"><span class="nav-number">1.3.</span> <span class="nav-text">原理</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现"><span class="nav-number">2.</span> <span class="nav-text">实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#控制台实现"><span class="nav-number">2.1.</span> <span class="nav-text">控制台实现</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">讲道理也不听</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+</body>
+</html>
