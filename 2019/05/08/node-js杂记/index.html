@@ -101,7 +101,7 @@
 <meta property="og:site_name" content="讲道理要听">
 <meta property="og:description" content="node.js项目里遇到的问题">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-10T08:12:49.852Z">
+<meta property="og:updated_time" content="2019-05-10T10:23:12.781Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="node.js杂记">
 <meta name="twitter:description" content="node.js项目里遇到的问题">
@@ -363,6 +363,7 @@
       
         <p>node.js项目里遇到的问题</p>
 <a id="more"></a>
+<p>## </p>
 <h2 id="exports和module-exports的区别"><a href="#exports和module-exports的区别" class="headerlink" title="exports和module.exports的区别"></a>exports和module.exports的区别</h2><p>我们在使用require()方法引入模块的时候，其实是引入了module.exports对象， <strong>exports只是module对象的exports的一个引用</strong>，我们可以通过修改exports所指向对象的值来协助修改module.exports的值。</p>
 <p>Node.js 在初始化时就执行了一句 <code>exports = module.exports</code> , 所以 exports 指向了 module.exports 相同的内存, 之后你若改变 module.exports 所指向的內存 , 你必須重新再执行一句 <code>exports = module.exports</code> , 才能指向正确的实例, 之后再赋值才有效，模块输出时只会输出 module.exports 这个引用所指向的东西</p>
 <h2 id="ejs模板"><a href="#ejs模板" class="headerlink" title="ejs模板"></a>ejs模板</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.  &lt;% code %&gt;：运行 JavaScript 代码，不输出</span><br><span class="line">2.  &lt;%= code %&gt;：显示转义后的 HTML内容</span><br><span class="line">3.  &lt;%- code %&gt;：显示原始 HTML 内容</span><br></pre></td></tr></table></figure>
