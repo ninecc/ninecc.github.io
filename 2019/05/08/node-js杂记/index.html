@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.2" />
+
+
+
+
+
+
+<meta name="description" content="node.js项目里遇到的问题">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node.js杂记">
+<meta property="og:url" content="http://yoursite.com/2019/05/08/node-js杂记/index.html">
+<meta property="og:site_name" content="讲道理要听">
+<meta property="og:description" content="node.js项目里遇到的问题">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-10T08:12:49.852Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="node.js杂记">
+<meta name="twitter:description" content="node.js项目里遇到的问题">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/08/node-js杂记/"/>
+
+
+
+
+
+  <title>node.js杂记 | 讲道理要听</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">讲道理要听</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">好好搬砖</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/08/node-js杂记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="讲道理也不听">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="讲道理要听">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">node.js杂记</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-08T15:35:02+08:00">
+                2019-05-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/node-js/" itemprop="url" rel="index">
+                    <span itemprop="name">node.js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>node.js项目里遇到的问题</p>
+<a id="more"></a>
+<h2 id="exports和module-exports的区别"><a href="#exports和module-exports的区别" class="headerlink" title="exports和module.exports的区别"></a>exports和module.exports的区别</h2><p>我们在使用require()方法引入模块的时候，其实是引入了module.exports对象， <strong>exports只是module对象的exports的一个引用</strong>，我们可以通过修改exports所指向对象的值来协助修改module.exports的值。</p>
+<p>Node.js 在初始化时就执行了一句 <code>exports = module.exports</code> , 所以 exports 指向了 module.exports 相同的内存, 之后你若改变 module.exports 所指向的內存 , 你必須重新再执行一句 <code>exports = module.exports</code> , 才能指向正确的实例, 之后再赋值才有效，模块输出时只会输出 module.exports 这个引用所指向的东西</p>
+<h2 id="ejs模板"><a href="#ejs模板" class="headerlink" title="ejs模板"></a>ejs模板</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1.  &lt;% code %&gt;：运行 JavaScript 代码，不输出</span><br><span class="line">2.  &lt;%= code %&gt;：显示转义后的 HTML内容</span><br><span class="line">3.  &lt;%- code %&gt;：显示原始 HTML 内容</span><br></pre></td></tr></table></figure>
+<p>注意：<code>&lt;%= code %&gt;</code> 和 <code>&lt;%- code %&gt;</code> 都可以是 JavaScript 表达式生成的字符串，当变量 code 为普通字符串时，两者没有区别。当 code 比如为 <code>&lt;h1&gt;hello&lt;/h1&gt;</code> 这种字符串时，<code>&lt;%= code %&gt;</code> 会原样输出 <code>&lt;h1&gt;hello&lt;/h1&gt;</code>，而 <code>&lt;%- code %&gt;</code> 则会显示 H1 大的 hello 字符串。</p>
+<p>使用<code>&lt;%- include(&#39;header&#39;) %&gt;</code>引入模板</p>
+<h3 id="app-locals-和-res-locals"><a href="#app-locals-和-res-locals" class="headerlink" title="app.locals 和 res.locals"></a>app.locals 和 res.locals</h3><p>在ejs模板中用到的变量是挂载在<code>app.locals</code> 和 <code>res.locals</code>下的</p>
+<p><code>app.locals</code> 上通常挂载常量信息（如博客名、描述、作者这种不会变的信息），<code>res.locals</code> 上通常挂载变量信息，即每次请求可能的值都不一样（如请求者信息，<code>res.locals.user = req.session.user</code>）</p>
+<h2 id="mongolass和mongoose"><a href="#mongolass和mongoose" class="headerlink" title="mongolass和mongoose"></a>mongolass和mongoose</h2><h3 id="mongoose"><a href="#mongoose" class="headerlink" title="mongoose"></a>mongoose</h3><p><strong>优点：</strong></p>
+<ol>
+<li>封装了数据库的操作，给人的感觉是同步的，其实内部是异步的。如 mongoose 与 MongoDB 建立连接：</li>
+</ol>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> mongoose = <span class="built_in">require</span>(<span class="string">'mongoose'</span>)</span><br><span class="line">mongoose.connect(<span class="string">'mongodb://localhost/test'</span>)</span><br><span class="line"><span class="keyword">const</span> BlogModel = mongoose.model(<span class="string">'Blog'</span>, &#123; <span class="attr">title</span>: <span class="built_in">String</span>, <span class="attr">content</span>: <span class="built_in">String</span> &#125;)</span><br><span class="line">BlogModel.find()</span><br></pre></td></tr></table></figure>
+<ol>
+<li>支持 Promise。这个也无需多说，Promise 是未来趋势，可结合 co 使用，也可结合 async/await 使用。</li>
+<li>支持文档校验。如上所述。</li>
+</ol>
+<p><strong>缺点（个人观点）：</strong></p>
+<ol>
+<li>功能多，复杂。Mongoose 功能很强大，包括静态方法，实例方法，虚拟属性，hook 函数等等，混用带来的后果是逻辑复杂，代码难以维护。</li>
+<li>较弱的 plugin 系统。如：<code>schema.pre(&#39;save&#39;, function(next) {})</code> 和 <code>schema.post(&#39;find&#39;, function(next) {})</code>，只支持异步 <code>next()</code>，灵活性大打折扣。</li>
+<li>其他：对新手来说难以理解的 Schema、Model、Entity 之间的关系；容易混淆的 toJSON 和 toObject，以及有带有虚拟属性的情况；用和不用 exec 的情况以及直接用 then 的情况；返回的结果是 Mongoose 包装后的对象，在此对象上修改结果却无效等等。</li>
+</ol>
+<h3 id="mongolass"><a href="#mongolass" class="headerlink" title="mongolass"></a>mongolass</h3><p><strong>优点：</strong></p>
+<ol>
+<li>支持 Promise。</li>
+<li>官方一致的 api。</li>
+<li>简单。参考 Mongolass 的 readme 即可上手，比 Mongoose 精简的多，本身代码也不多。</li>
+<li>可选的 Schema。Mongolass 中的 Schema （基于 <a href="https://www.npmjs.com/package/another-json-schema" target="_blank" rel="noopener">another-json-schema</a>）是可选的，并且只用来做文档校验。如果定义了 schema 并关联到某个 model，则插入、更新和覆盖等操作都会校验文档是否满足 schema，同时 schema 也会尝试格式化该字段，类似于 Mongoose，如定义了一个字段为 ObjectId 类型，也可以用 ObjectId 的字符串无缝使用一样。如果没有 schema，则用法跟原生 mongodb 库一样。</li>
+<li>简单却强大的插件系统。可以定义全局插件（对所有 model 生效），也可以定义某个 model 上的插件（只对该 model 生效）。Mongolass 插件的设计思路借鉴了中间件的概念（类似于 Koa），通过定义 <code>beforeXXX</code> 和 <code>afterXXX</code> （XXX为操作符首字母大写，如：<code>afterFind</code>）函数实现，函数返回 yieldable 的对象即可，所以每个插件内可以做一些其他的 IO 操作。不同的插件顺序会有不同的结果，而且每个插件的输入输出都是 plain object，而非类 Mongoose 包装后的对象，没有虚拟属性，无需调用 toJSON 或 toObject。Mongolass 中的 <code>.populate()</code>就是一个内置的插件。</li>
+<li>详细的错误信息。用过 Mongoose 的人一定遇到过这样的错： <code>CastError: Cast to ObjectId failed for value &quot;xxx&quot; at path &quot;_id&quot;</code> 只知道一个期望是 ObjectId 的字段传入了非期望的值，通常很难定位出错的代码，即使定位到也得不到错误现场。得益于 <a href="https://www.npmjs.com/package/another-json-schema" target="_blank" rel="noopener">another-json-schema</a>，使用 Mongolass 在查询或者更新时，某个字段不匹配它定义的 schema 时（还没落到 mongodb）会给出详细的错误信息</li>
+</ol>
+<p>## </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/05/js函数式编程/" rel="next" title="js函数式编程">
+                <i class="fa fa-chevron-left"></i> js函数式编程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="讲道理也不听" />
+          <p class="site-author-name" itemprop="name">讲道理也不听</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">30</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+
+        <div id="music163player">	
+        	<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=2&id=26494481&auto=0&height=32"></iframe>
+        </div>
+        
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#exports和module-exports的区别"><span class="nav-number">1.</span> <span class="nav-text">exports和module.exports的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ejs模板"><span class="nav-number">2.</span> <span class="nav-text">ejs模板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#app-locals-和-res-locals"><span class="nav-number">2.1.</span> <span class="nav-text">app.locals 和 res.locals</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mongolass和mongoose"><span class="nav-number">3.</span> <span class="nav-text">mongolass和mongoose</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#mongoose"><span class="nav-number">3.1.</span> <span class="nav-text">mongoose</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mongolass"><span class="nav-number">3.2.</span> <span class="nav-text">mongolass</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">讲道理也不听</span>
+</div>
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+  <script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+</body>
+</html>
