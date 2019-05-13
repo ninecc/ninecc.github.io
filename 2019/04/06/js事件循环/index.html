@@ -103,7 +103,7 @@
 <meta property="og:description" content="菜鸡的js事件循环理解">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/04/06/js事件循环/eventloop.jpg">
-<meta property="og:updated_time" content="2019-05-10T14:26:35.227Z">
+<meta property="og:updated_time" content="2019-05-10T14:35:35.961Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js事件循环">
 <meta name="twitter:description" content="菜鸡的js事件循环理解">
@@ -371,7 +371,7 @@
 <p>但这对于浏览器的网络请求显然是不合适，因为一个网络请求的资源什么时候返回是不可预知的，这种情况再排队等待就不明智了</p>
 <p>我们把任务分为<strong>同步任务</strong>和<strong>异步任务</strong>，两者区别在于是否需要等待结果返回</p>
 <p>正是由于JavaScript是单线程的，而异步容易实现非阻塞，所以在JavaScript中对于耗时的操作或者时间不确定的操作，使用异步就成了必然的选择</p>
-<h1 id="函数调用栈与任务队列"><a href="#函数调用栈与任务队列" class="headerlink" title="函数调用栈与任务队列"></a><strong>函数调用栈与任务队列</strong></h1><p>js主线程运行时，形成一个执行栈，所有同步任务都在主线程上执行，当在执行过程中遇到异步操作时，会将它交给浏览器的其他模块进行处理，然后将它的回调函数放入任务队列中，不阻塞主线程的执行<font color="red"><strong>不同的异步任务的回调函数会放入不同的任务队列之中</strong></font>，等执行栈中的任务都执行完毕后，检查<strong>任务队列</strong>是否有任务要执行，如果有任务要执行的话，那么就将该任务放到执行栈中执行其中的同步代码。如果当前<strong>任务队列</strong>为空的话，它就会一直循环等待任务到来。因此，这叫做事件循环。</p>
+<h1 id="函数调用栈与任务队列"><a href="#函数调用栈与任务队列" class="headerlink" title="函数调用栈与任务队列"></a><strong>函数调用栈与任务队列</strong></h1><p>js主线程运行时，形成一个执行栈，所有同步任务都在主线程上执行，当在执行过程中遇到异步操作时，会将它交给浏览器的其他模块进行处理，然后将它的回调函数放入任务队列中，不阻塞主线程的执行&lt; font color=red &gt;<strong>不同的异步任务的回调函数会放入不同的任务队列之中</strong>&lt; /font &gt;，等执行栈中的任务都执行完毕后，检查<strong>任务队列</strong>是否有任务要执行，如果有任务要执行的话，那么就将该任务放到执行栈中执行其中的同步代码。如果当前<strong>任务队列</strong>为空的话，它就会一直循环等待任务到来。因此，这叫做事件循环。</p>
 <img src="/2019/04/06/js事件循环/eventloop.jpg">
 <h2 id="举例setTimeout："><a href="#举例setTimeout：" class="headerlink" title="举例setTimeout："></a><strong>举例<code>setTimeout</code>：</strong></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">1</span>); </span><br><span class="line">setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>);</span><br><span class="line">&#125;, <span class="number">0</span>);  </span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">3</span>);</span><br></pre></td></tr></table></figure>
 <p>1.执行第一句，将它放入执行栈中，输出1<br>2.第一句出栈，执行第二句，由于setTimeout是异步操作，将它交给对应模块，然后将回调函数放入任务队列中<br>3.执行第三句，入栈，输出3<br>4.第三句出栈，此时执行栈空了，检查任务队列，发现有回调函数，执行输出2</p>
@@ -572,7 +572,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">32</span>
+                <span class="site-state-item-count">33</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
