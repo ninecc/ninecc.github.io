@@ -102,7 +102,7 @@
 <meta property="og:site_name" content="讲道理要听">
 <meta property="og:description" content="时隔两个月终于再次开始了面试的日子做一下记录">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-10T14:34:24.583Z">
+<meta property="og:updated_time" content="2019-06-10T14:38:24.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="面试-6.10">
 <meta name="twitter:description" content="时隔两个月终于再次开始了面试的日子做一下记录">
@@ -383,7 +383,8 @@
 <li>通常浏览器允许跨域资源嵌入（Cross-origin embedding），如 img、script 标签；</li>
 <li>通常浏览器不允许跨域读操作（Cross-origin reads）。*</li>
 </ul>
-<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h3><h3 id="cors"><a href="#cors" class="headerlink" title="cors"></a>cors</h3><h3 id="postMessage"><a href="#postMessage" class="headerlink" title="postMessage"></a>postMessage</h3><h1 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h1><p>让我讲讲cookie，一时不知道从何讲起，想了想然后把cookie和session都讲了点<br>然后问我cookie是如何工作的</p>
+<h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><h3 id="jsonp"><a href="#jsonp" class="headerlink" title="jsonp"></a>jsonp</h3><p>动态生成创建一个script标签，将src属性设置为地址接口，并在参数中带一个回调函数名<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">jsonp</span>(<span class="params">req</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> script = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</span><br><span class="line">    <span class="keyword">var</span> url = req.url + <span class="string">'?callback='</span> + req.callback.name;</span><br><span class="line">    script.src = url;</span><br><span class="line">    <span class="built_in">document</span>.getElementsByTagName(<span class="string">'head'</span>)[<span class="number">0</span>].appendChild(script); </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="cors"><a href="#cors" class="headerlink" title="cors"></a>cors</h3><h3 id="postMessage"><a href="#postMessage" class="headerlink" title="postMessage"></a>postMessage</h3><h1 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h1><p>让我讲讲cookie，一时不知道从何讲起，想了想然后把cookie和session都讲了点<br>然后问我cookie是如何工作的</p>
 <h1 id="call和apply是什么时候使用的"><a href="#call和apply是什么时候使用的" class="headerlink" title="call和apply是什么时候使用的"></a>call和apply是什么时候使用的</h1><h1 id="Bootstrap是栅栏布局是怎么实现的"><a href="#Bootstrap是栅栏布局是怎么实现的" class="headerlink" title="Bootstrap是栅栏布局是怎么实现的"></a>Bootstrap是栅栏布局是怎么实现的</h1><h1 id="vue的双向数据绑定原理"><a href="#vue的双向数据绑定原理" class="headerlink" title="vue的双向数据绑定原理"></a>vue的双向数据绑定原理</h1><h1 id="实习时间"><a href="#实习时间" class="headerlink" title="实习时间"></a>实习时间</h1><h1 id="遇到的最大的困难"><a href="#遇到的最大的困难" class="headerlink" title="遇到的最大的困难"></a>遇到的最大的困难</h1><p>这题很常规，但是就我个人来说真的很难回答，因为实操项目基本都是跟着教程走，遇到一般的报错也都是直接搜索解决或者咨询周围同学，因为接触还不够核心，所以真没遇到过什么特别难的，唉，这一点需要好好想一想，下回面试要注意一下。</p>
 
       
